@@ -1,4 +1,4 @@
-import HeaderAddNote from "./Header/HeaderAddNote";
+import HeaderAddNote from "../AddNote/HeaderAddNote";
 import HeaderMain from "./Header/HeaderMain";
 import HeaderNote from "./Header/HeaderNote";
 const HeaderCountainer = ({ page }) => {
