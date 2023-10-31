@@ -6,10 +6,10 @@ const MainAddNote=({isSave,handleSave,getNewNote,AddNotePage})=>{
   if (isSave && titleInput.current.value.length>3) {
     const title=titleInput.current.value.trim();
     const description=descriptionInput.current.value.trim();
-    // getNewNote({title,description})
+    getNewNote({title,description})
     // setPage("main");
     // AddNotePage("main")
-    // handleSave(false);
+    handleSave(false);
    }else{
     handleSave(false)
    }

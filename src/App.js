@@ -14,10 +14,10 @@ function App() {
   };
 
   const getNewNote=(getNote)=>{
-console.log(getNote);
-const newNotesArr=[...notes,getNote]
-setNotes(newNotesArr);
-console.log(notes);
+// console.log(getNote);
+// const newNotesArr=[...notes,getNote]
+// setNotes(newNotesArr);
+// console.log(notes);
   }
   return (
     <div className="App w-full min-h-screen px-6 bg-[#252525] relative">
