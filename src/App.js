@@ -21,7 +21,7 @@ console.log(notes);
   }
   return (
     <div className="App w-full min-h-screen px-6 bg-[#252525] relative">
-    {page==="addNote" && <AddNote getNewNote={getNewNote} setPage={setPage} />}
+    {page==="addNote" && <AddNote getNewNote={getNewNote} AddNotePage={AddNotePage} />}
       {/* <HeaderCountainer page={page} /> */}
        {page=== "main" && <AddIcon AddNotePage={AddNotePage} />}
        {/* <MainCountainer page={page} /> */}

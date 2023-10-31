@@ -1,6 +1,6 @@
-const HeaderAddNote = ({setIsSave}) => {
+const HeaderAddNote = ({handleSave}) => {
 const saveNote=()=>{
-  setIsSave(true);
+  handleSave(true);
 }
 
   return (

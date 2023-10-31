@@ -1,16 +1,17 @@
 import { useRef } from "react";
 
-const MainAddNote=({isSave,setIsSave,getNewNote,setPage})=>{
+const MainAddNote=({isSave,handleSave,getNewNote,AddNotePage})=>{
     const titleInput=useRef();
     const descriptionInput=useRef();
   if (isSave && titleInput.current.value.length>3) {
     const title=titleInput.current.value.trim();
     const description=descriptionInput.current.value.trim();
-    getNewNote({title,description})
-    setPage("main");
-    setIsSave(false);
+    // getNewNote({title,description})
+    // setPage("main");
+    // AddNotePage("main")
+    // handleSave(false);
    }else{
-    setIsSave(false)
+    handleSave(false)
    }
     return (
         <div>

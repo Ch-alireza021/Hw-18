@@ -4,11 +4,17 @@ import MainAddNote from "./MainAddNote";
 
 const AddNote=(props)=>{
     const [isSave,setIsSave]=useState(false);
+   function handleSave(value){
+    setIsSave(value)
+   }
+
+
+    
 
 return(
     <div>
-        <HeaderAddNote setIsSave={setIsSave}/>
-        <MainAddNote isSave={isSave} setIsSave={setIsSave} {...props} />
+        <HeaderAddNote handleSave={handleSave}/>
+        <MainAddNote isSave={isSave} handleSave={handleSave} {...props} />
     </div>
 )
 }
