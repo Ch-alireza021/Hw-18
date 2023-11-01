@@ -4,6 +4,7 @@ import AddIcon from "./Components/MainCountainer/AddIcon/AddIcon";
 import AddNote from "./Components/AddNote/AddNote";
 import MainNotesCountainer from "./Components/MainNotes/MainNotesCountainer";
 import NoteCountainer from "./Components/Note/NoteCountainer";
+import SearchCountainer from "./Components/Search/SearchCountainer";
 
 function App() {
   const saveNotes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -39,28 +40,42 @@ function App() {
     setNotes(newNotes);
     setPage("main");
   }
-  function backToMain(){
-    
+  function backToMain(isBack) {
+    if (isBack) {
+      setPage("main");
+    }
   }
-
+function isSearch(isIt){
+  if(isIt){
+    setPage("search")
+  }
+  console.log("search");
+}
   return (
     <div className="App w-full min-h-screen px-6 bg-[#252525] relative">
+      {page === "search" && <SearchCountainer AddNotePage={AddNotePage} notes={notes} handelNote={handelNote} />}
       {page === "main" && <AddIcon AddNotePage={AddNotePage} />}
       {page === "main" && (
         <MainNotesCountainer
           AddNotePage={AddNotePage}
           notes={notes}
           handelNote={handelNote}
+          isSearch={isSearch}
         />
       )}
       {page === "addNote" && (
-        <AddNote getNewNote={getNewNote} AddNotePage={AddNotePage} />
+        <AddNote
+          getNewNote={getNewNote}
+          AddNotePage={AddNotePage}
+          backToMain={backToMain}
+        />
       )}
       {page === "note" && (
         <NoteCountainer
           AddNotePage={AddNotePage}
           note={note}
           handleDelete={handleDelete}
+          backToMain={backToMain}
         />
       )}
     </div>

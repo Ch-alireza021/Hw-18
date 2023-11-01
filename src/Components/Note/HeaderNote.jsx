@@ -2,24 +2,28 @@ import { useState } from "react";
 import DeleteModal from "../Modal/DeleteModal";
 import { createPortal } from "react-dom";
 
-const HeaderNote = ({ noteId ,handleDelete}) => {
+const HeaderNote = ({ noteId ,handleDelete,backToMain}) => {
   const shoModalDiv = document.getElementById("showModal");
-  console.log(shoModalDiv);
   const [showModal, setShowModal] = useState(false);
 
   function deleting() {
     console.log(noteId);
     setShowModal(true);
   }
+
   function isDelete(getok) {
   if(getok){
     console.log(getok);
     handleDelete(noteId)
   }
   }
+
+  function isBack(){
+    backToMain(true)
+  }
   return (
     <div className="flex justify-between pt-[47px]">
-      <div className="iconDiv">
+      <div onClick={isBack} className="iconDiv">
         <img src="./icon/chevron_left.svg" alt="icon back" />
       </div>
       <div className="iconDiv">

@@ -3,11 +3,11 @@ import HeaderMain from "./MainHeaderNotes";
 import MainNotesMain from "./MainNotesMain";
 
 
-const MainNotesCountainer=({notes,handelNote})=>{
+const MainNotesCountainer=({notes,handelNote,isSearch})=>{
     
     return(
         <div>
-            <HeaderMain/>
+            <HeaderMain isSearch={isSearch}/>
             {notes.length>0 ?
             <div className="text-2xl  pt-10 flex flex-col gap-6" >
                 <MainNotesMain notes={notes} handelNote={handelNote}/>

@@ -1,14 +1,14 @@
 import { createPortal } from "react-dom";
 import About from "./About";
 import { useState } from "react";
-const MainHeaderNotes = () => {
+const MainHeaderNotes = ({isSearch}) => {
 const showModalDiv=document.getElementById("showModal");
 const [showModal, setShowModal] = useState(false);
   return (
     <div className="flex justify-between pt-[47px]">
     <span className="text-[43px] text-white ">Notes</span>
     <div className=" flex gap-5">
-      <span className="iconDiv">
+      <span onClick={()=>isSearch(true)} className="iconDiv">
         <img src="./icon/search.svg" alt="" />
       </span>
       <span className="iconDiv">
