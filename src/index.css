@@ -20,5 +20,4 @@ html {
 
 .plusShadow{
     filter: drop-shadow(-5px 0px 10px rgba(0, 0, 0, 0.40)) drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.40));
-
 }

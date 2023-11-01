@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import AddIcon from "./Components/MainCountainer/AddIcon/AddIcon";
 import AddNote from "./Components/AddNote/AddNote";
@@ -6,9 +6,13 @@ import MainNotesCountainer from "./Components/MainNotes/MainNotesCountainer";
 import NoteCountainer from "./Components/Note/NoteCountainer";
 
 function App() {
+  const saveNotes=JSON.parse(localStorage.getItem("notes"))
   const [page, setPage] = useState("main");
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(saveNotes);
   const [note, setNote] = useState("");
+  useEffect(()=>{
+    localStorage.setItem("notes",JSON.stringify(notes));
+  },[notes])
 
   const AddNotePage = (page) => {
     console.log(page);

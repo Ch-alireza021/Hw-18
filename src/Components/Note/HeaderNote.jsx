@@ -19,7 +19,7 @@ const HeaderNote = ({noteId}) => {
         <img src="./icon/icon_trash.svg" onClick={deleting} alt="icon back" />
       </div>
       {showModal && createPortal(
-        
+        <DeleteModal />
       )}
     </div>
   );
