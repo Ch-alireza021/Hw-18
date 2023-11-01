@@ -6,13 +6,13 @@ import MainNotesCountainer from "./Components/MainNotes/MainNotesCountainer";
 import NoteCountainer from "./Components/Note/NoteCountainer";
 
 function App() {
-  const saveNotes=JSON.parse(localStorage.getItem("notes"))
+  const saveNotes = JSON.parse(localStorage.getItem("notes")) || [];
   const [page, setPage] = useState("main");
   const [notes, setNotes] = useState(saveNotes);
   const [note, setNote] = useState("");
-  useEffect(()=>{
-    localStorage.setItem("notes",JSON.stringify(notes));
-  },[notes])
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const AddNotePage = (page) => {
     console.log(page);
@@ -27,9 +27,20 @@ function App() {
   };
   // Get note id from MainNotesMain
   function handelNote(id) {
+    console.log(id);
     setPage("note");
     const note = notes.find((note) => note.id === id);
     setNote(note);
+  }
+
+  function handleDelete(deleteId) {
+    console.log("deleteId", deleteId);
+    const newNotes = notes.filter((note) => note.id !== deleteId);
+    setNotes(newNotes);
+    setPage("main");
+  }
+  function backToMain(){
+    
   }
 
   return (
@@ -46,7 +57,11 @@ function App() {
         <AddNote getNewNote={getNewNote} AddNotePage={AddNotePage} />
       )}
       {page === "note" && (
-        <NoteCountainer AddNotePage={AddNotePage} note={note} />
+        <NoteCountainer
+          AddNotePage={AddNotePage}
+          note={note}
+          handleDelete={handleDelete}
+        />
       )}
     </div>
   );
