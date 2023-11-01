@@ -7,7 +7,7 @@ const NoteCountainer=({note})=>{
     // const note=
 return (
     <div>
-        <HeaderNote/>
+        <HeaderNote noteId={note.id} />
         <NoteMain note={note} />
     </div>
 )
