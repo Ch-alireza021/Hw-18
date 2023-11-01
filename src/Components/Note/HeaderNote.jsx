@@ -2,14 +2,16 @@ import { useState } from "react";
 import DeleteModal from "../Modal/DeleteModal";
 import { createPortal } from "react-dom";
 
-const HeaderNote = ({noteId}) => {
-  const shoModalDiv=document.getElementById("shoModal");
-  const [showModal,setShowModal] =useState(false);
+const HeaderNote = ({ noteId }) => {
+  const shoModalDiv = document.getElementById("showModal");
+  console.log(shoModalDiv);
+  const [showModal, setShowModal] = useState(false);
 
-  function deleting(){
+  function deleting() {
     console.log(noteId);
     setShowModal(true);
   }
+  function isDelete() {}
   return (
     <div className="flex justify-between pt-[47px]">
       <div className="iconDiv">
@@ -18,9 +20,7 @@ const HeaderNote = ({noteId}) => {
       <div className="iconDiv">
         <img src="./icon/icon_trash.svg" onClick={deleting} alt="icon back" />
       </div>
-      {showModal && createPortal(
-        <DeleteModal />
-      )}
+      {showModal && createPortal(<DeleteModal />, shoModalDiv)}
     </div>
   );
 };
