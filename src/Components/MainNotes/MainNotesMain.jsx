@@ -7,7 +7,7 @@ const MainNotesMain = ({notes,handelNote}) => {
 const quotient=Math.floor(index/color.length)
 const choseColor=quotient > 0 ? index%(quotient*color.length) : index ;
     return (
-      <div key={index} onClick={()=>getId(index)}  className={`px-10 py-5  rounded-xl bg-[${color[choseColor]}]`} >
+      <div key={note.id} onClick={()=>getId(note.id)}  className={`px-10 py-5  rounded-xl bg-[${color[choseColor]}]`} >
         <span>{note.title}</span>
       </div>
     );

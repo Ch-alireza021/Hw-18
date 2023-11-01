@@ -4,8 +4,6 @@ import MainNotesMain from "./MainNotesMain";
 
 
 const MainNotesCountainer=({notes,handelNote})=>{
-    // console.log(notes);
-
     return(
         <div>
             <HeaderMain/>

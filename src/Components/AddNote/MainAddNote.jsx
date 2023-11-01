@@ -1,12 +1,18 @@
 import { useRef } from "react";
 
 const MainAddNote=({isSave,handleSave,getNewNote,AddNotePage})=>{
+    function creatId(){
+        const date=new Date();
+        const id=date.getTime();
+        return id
+    }
     const titleInput=useRef();
     const descriptionInput=useRef();
+
   if (isSave && titleInput.current.value.length>3) {
     const title=titleInput.current.value.trim();
     const description=descriptionInput.current.value.trim();
-    getNewNote({title,description})
+    getNewNote({title,description,id:creatId()})
     // setPage("main");
     AddNotePage("main")
     handleSave(false);
