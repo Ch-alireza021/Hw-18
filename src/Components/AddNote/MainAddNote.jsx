@@ -8,7 +8,7 @@ const MainAddNote=({isSave,handleSave,getNewNote,AddNotePage})=>{
     const description=descriptionInput.current.value.trim();
     getNewNote({title,description})
     // setPage("main");
-    // AddNotePage("main")
+    AddNotePage("main")
     handleSave(false);
    }else{
     handleSave(false)
@@ -17,6 +17,7 @@ const MainAddNote=({isSave,handleSave,getNewNote,AddNotePage})=>{
         <div>
             <input ref={titleInput}  className="mt-10 text-[48px] text-[#9A9A9A] w-full bg-transparent outline-none" placeholder="Title"type="text"/>
             <textarea ref={descriptionInput} className="mt-10 text-2xl text-[#9A9A9A] w-full bg-transparent outline-none" placeholder="Type something..." />
+            
         </div>
     )
 }
